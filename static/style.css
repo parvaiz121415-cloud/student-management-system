@@ -1,78 +1,417 @@
+/* ================================
+   GLOBAL SETTINGS
+================================ */
+
 * {
     box-sizing: border-box;
 }
-python app.py
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f1f5f9;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef4ff, #f8fafc);
+    color: #1e293b;
+    min-height: 100vh;
 }
+
+
+/* ================================
+   MAIN CONTAINER
+================================ */
 
 .container {
     width: 90%;
-    max-width: 1000px;
+    max-width: 1050px;
     margin: 50px auto;
+    animation: fadeIn 0.8s ease;
 }
+
+
+/* ================================
+   MAIN HEADING
+================================ */
 
 h1 {
     text-align: center;
     color: #172554;
+    margin-bottom: 8px;
+    font-size: 36px;
+    letter-spacing: -0.5px;
+    animation: slideDown 0.7s ease;
 }
 
 .subtitle {
     text-align: center;
     color: #64748b;
+    margin-bottom: 35px;
+    font-size: 16px;
+    animation: fadeIn 1s ease;
 }
 
+
+/* ================================
+   CARDS
+================================ */
+
 .card {
-    background: white;
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 28px;
     margin-top: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 14px;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+
+    border: 1px solid rgba(226, 232, 240, 0.8);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    animation: cardAppear 0.7s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.12);
 }
 
 h2 {
     color: #1e3a8a;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
 }
+
+
+/* ================================
+   FORM
+================================ */
 
 form {
     display: grid;
-    gap: 12px;
+    gap: 13px;
 }
 
 input {
-    padding: 12px;
+    padding: 13px 14px;
+
     border: 1px solid #cbd5e1;
-    border-radius: 6px;
+    border-radius: 8px;
+
+    font-size: 15px;
+    outline: none;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.2s ease;
 }
 
+input:hover {
+    border-color: #94a3b8;
+}
+
+input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+
+    transform: translateY(-1px);
+}
+
+
+/* ================================
+   ADD STUDENT BUTTON
+================================ */
+
 button {
-    padding: 12px;
+    padding: 13px;
+
     border: none;
-    border-radius: 6px;
-    background: #2563eb;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
     color: white;
+
     cursor: pointer;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.25s ease,
+        background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(
+        135deg,
+        #1d4ed8,
+        #1e40af
+    );
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(37, 99, 235, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   EXPORT TO EXCEL BUTTON
+================================ */
+
+.export-btn {
+    display: block;
+
+    width: fit-content;
+
+    margin: 20px auto 5px;
+
+    padding: 13px 22px;
+
+    background: linear-gradient(
+        135deg,
+        #198754,
+        #157347
+    );
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(25, 135, 84, 0.2);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.3s ease;
+}
+
+.export-btn:hover {
+    background: linear-gradient(
+        135deg,
+        #157347,
+        #0f5132
+    );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 9px 22px rgba(25, 135, 84, 0.3);
+}
+
+.export-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ================================
+   STUDENT TABLE
+================================ */
+
+.table-container {
+    overflow-x: auto;
+    border-radius: 10px;
 }
 
 table {
-    width: 60%;
+    width: 100%;
+
     border-collapse: collapse;
+
+    margin-top: 10px;
+
+    background: white;
+
+    overflow: hidden;
 }
 
 th,
 td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+    padding: 14px;
+
+    border-bottom: 1px solid #e2e8f0;
+
     text-align: left;
 }
 
 th {
-    background: #e2e8f0;
+    background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #172554
+    );
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 14px;
 }
+
+td {
+    color: #334155;
+
+    transition:
+        background 0.2s ease;
+}
+
+tr {
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+tr:hover {
+    background: #f1f5ff;
+}
+
+
+/* ================================
+   DELETE BUTTON
+================================ */
 
 .delete {
     color: #dc2626;
+
     text-decoration: none;
+
+    font-weight: bold;
+
+    padding: 6px 10px;
+
+    border-radius: 6px;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.delete:hover {
+    color: #991b1b;
+
+    background: #fee2e2;
+
+    transform: translateX(2px);
+}
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideDown {
+
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .export-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* ================================
+   REDUCED MOTION
+   Accessibility
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
