@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+python app.py
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+h1 {
+    text-align: center;
+    color: #172554;
+}
+
+.subtitle {
+    text-align: center;
+    color: #64748b;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: #1e3a8a;
+}
+
+form {
+    display: grid;
+    gap: 12px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+table {
+    width: 60%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #e2e8f0;
+}
+
+.delete {
+    color: #dc2626;
+    text-decoration: none;
+}
